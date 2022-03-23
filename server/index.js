@@ -51,10 +51,14 @@ app.post("/api/name", (req, res)=>{
   res.status(200).send(users);
 
 })
+app.get("/api/users", (req, res) =>{
+  res.status(200).send(users)
+})
 
 
 app.delete("/api/delete/:index", (req, res)=>{
-  console.log(req.params)
+  users.splice(req.params.index, 1)
+  res.status(200).send(users)
 })
 
 app.listen(4000, () => console.log("Server running on 4000"));
